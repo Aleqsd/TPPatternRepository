@@ -10,6 +10,9 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            DataClasses1DataContext dataContext = new DataClasses1DataContext();
+            Console.WriteLine(dataContext.Customers.Count());
+            Console.ReadLine();
         }
     }
 }
