@@ -19,6 +19,7 @@ namespace ConsoleApplication1
             IEnumerable<Products> productQuery = productServices.GetAll();
 
             // Exercice 1 
+            // ProductName des 3 produits les plus chers
             IEnumerable<Products> exerciceUn = productQuery.OrderBy(p => p.UnitPrice).Take(3);
 
             Console.WriteLine("ProductName des 3 produits les plus chers : \n");
@@ -27,6 +28,7 @@ namespace ConsoleApplication1
             }
 
             // Exercice 2
+            // ProductName triés par ordre alphabétique croissant des produits en rupture de stock (discontinued)
             IEnumerable<Products> exerciceDeux = productQuery.OrderBy(p => p.ProductName).Where(p => p.Discontinued);
 
             Console.WriteLine("\nProductName triés par ordre alphabétique croissant des produits en rupture de stock (discontinued) : \n");
@@ -35,9 +37,11 @@ namespace ConsoleApplication1
             }
 
             // Exercice 3
+            // Nombre de produits en stocks relevant du fournisseur 1 et de la catégorie 1
             Console.WriteLine("\nNombre de produits en stocks relevant du fournisseur 1 et de la catégorie 1 :\n" + productServices.GetProductsByProviderAndCategory(1, 1).Count());
 
             // Exercice 4
+            // Prix moyen des articles relevant de la catégorie 2
             Console.WriteLine("\nPrix moyen des articles relevant de la catégorie 2 :\n" + productQuery.Where(p => p.CategoryID == 2).Average(p => p.UnitPrice));
 
             Console.ReadLine();
